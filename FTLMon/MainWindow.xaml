@@ -1,0 +1,69 @@
+﻿<Window x:Class="FTLMon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FTLMon"
+        mc:Ignorable="d"
+        Title="FTLMon" Height="436" Width="685">
+    <Grid>
+        <Button Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="btnConnect_Click"/>
+        <Label Name="lblAttached" Content="Detached" HorizontalAlignment="Left" Margin="63,7,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtShipName" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Difficulty" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtDifficulty" HorizontalAlignment="Left" Margin="82,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Sector" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtSector" HorizontalAlignment="Left" Margin="82,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Total Scrap" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTotalScrap" HorizontalAlignment="Left" Margin="82,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Beacons" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBeacons" HorizontalAlignment="Left" Margin="82,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Ship Kills" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtShipKills" HorizontalAlignment="Left" Margin="82,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Score" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtScore" HorizontalAlignment="Left" Margin="82,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Crew Count" HorizontalAlignment="Left" Margin="221,58,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCrewCount" HorizontalAlignment="Left" Margin="293,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Fuel" HorizontalAlignment="Left" Margin="221,81,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtFuel" HorizontalAlignment="Left" Margin="293,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Drones" HorizontalAlignment="Left" Margin="221,104,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDrones" HorizontalAlignment="Left" Margin="293,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Missiles" HorizontalAlignment="Left" Margin="221,127,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMissiles" HorizontalAlignment="Left" Margin="293,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Hull" HorizontalAlignment="Left" Margin="221,150,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtHull" HorizontalAlignment="Left" Margin="293,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Scrap" HorizontalAlignment="Left" Margin="221,173,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtScrap" HorizontalAlignment="Left" Margin="293,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Reactor" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtReactor" HorizontalAlignment="Left" Margin="82,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Pilot" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPilot" HorizontalAlignment="Left" Margin="82,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Doors" HorizontalAlignment="Left" Margin="10,277,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDoors" HorizontalAlignment="Left" Margin="82,281,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Sensors" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtSensors" HorizontalAlignment="Left" Margin="82,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Battery" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBattery" HorizontalAlignment="Left" Margin="82,327,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Med Bay" HorizontalAlignment="Left" Margin="221,231,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMedBay" HorizontalAlignment="Left" Margin="293,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Clone Bay" HorizontalAlignment="Left" Margin="221,254,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCloneBay" HorizontalAlignment="Left" Margin="293,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Oxygen" HorizontalAlignment="Left" Margin="221,277,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtOxygen" HorizontalAlignment="Left" Margin="293,281,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Shields" HorizontalAlignment="Left" Margin="221,300,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtShields" HorizontalAlignment="Left" Margin="293,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Engines" HorizontalAlignment="Left" Margin="221,323,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtEngines" HorizontalAlignment="Left" Margin="293,327,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Weapons" HorizontalAlignment="Left" Margin="432,231,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtWeapons" HorizontalAlignment="Left" Margin="504,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Drone Bay" HorizontalAlignment="Left" Margin="432,254,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDroneBay" HorizontalAlignment="Left" Margin="504,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Teleporter" HorizontalAlignment="Left" Margin="432,277,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTeleporter" HorizontalAlignment="Left" Margin="504,281,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Hacking" HorizontalAlignment="Left" Margin="432,300,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtHacking" HorizontalAlignment="Left" Margin="504,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Artillery" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtArtillery" HorizontalAlignment="Left" Margin="82,350,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>
