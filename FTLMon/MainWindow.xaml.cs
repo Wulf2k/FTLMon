@@ -44,13 +44,16 @@ namespace FTLMon
         private static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int iSize, IntPtr lpNumberOfBytesWritten);
 
         private static Dictionary<string, int> systems = new Dictionary<string, int>();
-        
+        private static List<TextBox> weaps = new List<TextBox>();
+        private static List<TextBox> drones = new List<TextBox>();
+
         public static void initSystems()
         {
             systems.Clear();
             systems.Add("artillery", 0);
             systems.Add("battery", 0);
             systems.Add("clonebay", 0);
+            systems.Add("cloaking", 0);
             systems.Add("doors", 0);
             systems.Add("drones", 0);
             systems.Add("engines", 0);
@@ -72,6 +75,19 @@ namespace FTLMon
 
         public bool TryAttachToClient()
         {
+            weaps.Clear();
+            weaps.Add(txtWeapOne);
+            weaps.Add(txtWeapTwo);
+            weaps.Add(txtWeapThree);
+            weaps.Add(txtWeapFour);
+
+            drones.Clear();
+            drones.Add(txtDroneOne);
+            drones.Add(txtDroneTwo);
+            drones.Add(txtDroneThree);
+            drones.Add(txtDroneFour);
+
+
             Process selectedProcess = null;
             Process[] _allProcesses = Process.GetProcesses();
             try
@@ -295,8 +311,10 @@ namespace FTLMon
 
                         int statLoc = RInt32(ba + 0x513490);
 
+                        int runnum = RInt32(ba + 0x513bc4);
+
                         int fuel = RInt32(statLoc + 0xec);
-                        int drones = RInt32(statLoc + 0xf0);
+                        int drone = RInt32(statLoc + 0xf0);
                         int scrap = RInt32(statLoc + 0xf4);
                         int missiles = RInt32(statLoc + 0xf8);
                         int hull = RInt32(statLoc + 0xfc);
@@ -313,6 +331,8 @@ namespace FTLMon
 
                         float score = (totalScrap + (beacons * 10) + (shipKills * 20)) * (1 + (0.25f * difficulty));
 
+                        txtRunNum.Text = runnum.ToString();
+
                         txtShipName.Text = shipName;
 
                         txtShipKills.Text = shipKills.ToString();
@@ -326,7 +346,7 @@ namespace FTLMon
 
                         txtCrewCount.Text = crewCount.ToString();
                         txtFuel.Text = fuel.ToString();
-                        txtDrones.Text = drones.ToString();
+                        txtDrones.Text = drone.ToString();
                         txtMissiles.Text = missiles.ToString();
                         txtHull.Text = hull.ToString();
                         txtScrap.Text = scrap.ToString();
@@ -354,14 +374,32 @@ namespace FTLMon
                         {
                             switch (sys.Key)
                             {
+                                case "artillery":
+                                    txtArtillery.Text = sys.Value.ToString();
+                                    break;
+                                case "battery":
+                                    txtBattery.Text = sys.Value.ToString();
+                                    break;
                                 case "pilot":
                                     txtPilot.Text = sys.Value.ToString();
+                                    break;
+                                case "cloaking":
+                                    txtCloaking.Text = sys.Value.ToString();
+                                    break;
+                                case "clonebay":
+                                    txtCloneBay.Text = sys.Value.ToString();
                                     break;
                                 case "doors":
                                     txtDoors.Text = sys.Value.ToString();
                                     break;
-                                case "sensors":
-                                    txtSensors.Text = sys.Value.ToString();
+                                case "drones":
+                                    txtDroneBay.Text = sys.Value.ToString();
+                                    break;
+                                case "engines":
+                                    txtEngines.Text = sys.Value.ToString();
+                                    break;
+                                case "hacking":
+                                    txtHacking.Text = sys.Value.ToString();
                                     break;
                                 case "medbay":
                                     txtMedBay.Text = sys.Value.ToString();
@@ -372,31 +410,74 @@ namespace FTLMon
                                 case "shields":
                                     txtShields.Text = sys.Value.ToString();
                                     break;
-                                case "engines":
-                                    txtEngines.Text = sys.Value.ToString();
-                                    break;
-                                case "weapons":
-                                    txtWeapons.Text = sys.Value.ToString();
-                                    break;
-                                case "drones":
-                                    txtDroneBay.Text = sys.Value.ToString();
+                                case "sensors":
+                                    txtSensors.Text = sys.Value.ToString();
                                     break;
                                 case "teleporter":
                                     txtTeleporter.Text = sys.Value.ToString();
                                     break;
-                                case "clonebay":
-                                    txtCloneBay.Text = sys.Value.ToString();
+                                case "weapons":
+                                    txtWeapons.Text = sys.Value.ToString();
                                     break;
-                                case "battery":
-                                    txtBattery.Text = sys.Value.ToString();
-                                    break;
-                                case "hacking":
-                                    txtHacking.Text = sys.Value.ToString();
-                                    break;
-                                case "artillery":
-                                    txtArtillery.Text = sys.Value.ToString();
-                                    break;
+                                
+                                
+                                
+                                
+                                
+                                
                             }
+                        }
+
+                        int weapnum;
+                        int weapstart;
+                        int weapend;
+
+                        weapstart = RInt32(ba + 0x51348c);
+                        weapstart = RInt32(weapstart + 0x48);
+                        weapend = RInt32(weapstart + 0x1cc);
+                        weapstart = RInt32(weapstart + 0x1c8);
+
+                        weapnum = (weapend - weapstart) / 4;
+                        txtWeapCount.Text = weapnum.ToString();
+
+                        int j = 0;
+                        foreach (TextBox txt in weaps)
+                        {
+                            if (j < weapnum)
+                            {
+                                txt.Text = RAsciiStr(RInt32(weapstart + j * 4) + 0x124);
+                            }
+                            else
+                            {
+                                txt.Text = "";
+                            }
+                            j++;
+                        }
+
+                        int dronenum;
+                        int dronestart;
+                        int droneend;
+
+                        dronestart = RInt32(ba + 0x51348c);
+                        dronestart = RInt32(dronestart + 0x4c);
+                        droneend = RInt32(dronestart + 0x1c4);
+                        dronestart = RInt32(dronestart + 0x1c0);
+
+                        dronenum = (droneend - dronestart) / 4;
+                        txtDroneCount.Text = dronenum.ToString();
+
+                        j = 0;
+                        foreach (TextBox txt in drones)
+                        {
+                            if (j < dronenum)
+                            {
+                                txt.Text = RAsciiStr(RInt32(RInt32(dronestart + j * 4) + 0x1c) + 0xc);
+                            }
+                            else
+                            {
+                                txt.Text = "";
+                            }
+                            j++;
                         }
 
                     }
