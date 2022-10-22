@@ -20,8 +20,8 @@
         <TextBox x:Name="txtBeacons" HorizontalAlignment="Left" Margin="82,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40"/>
         <Label Content="Ship Kills" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtShipKills" HorizontalAlignment="Left" Margin="82,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40"/>
-        <Label Content="Score" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtScore" HorizontalAlignment="Left" Margin="82,205,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40"/>
+        <Label Content="Score" HorizontalAlignment="Left" Margin="135,63,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtScore" HorizontalAlignment="Left" Margin="207,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="77"/>
         <Label Content="Crew Count" HorizontalAlignment="Left" Margin="135,86,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtCrewCount" HorizontalAlignment="Left" Margin="207,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40"/>
         <Label Content="Fuel" HorizontalAlignment="Left" Margin="135,109,0,0" VerticalAlignment="Top"/>
